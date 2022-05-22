@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { options } = require('less');
+
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -12,6 +12,32 @@ module.exports = {
         template: 'src/assets/index.html'
       }),
     ],
+     module: {
+      rules: [
+        {
+          test: /\.less$/i,
+          loaders: [
+            'style-loader',
+            'css-loader',
+            'less-loader',
+          ],
+        },
+        // {
+        //   test: /\.scss$/i,
+        //   use: [
+        //     "style-loader",
+        //     "css-loader",
+        //     {
+        //       loader: "sass-loader",
+        //       options: {
+        //         implementation: require('dart-sass')
+        //       }
+        //     },
+        //   ],
+        // },
+      ],
+    },
+  
    
     
 };
