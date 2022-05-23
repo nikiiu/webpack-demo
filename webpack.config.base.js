@@ -15,6 +15,19 @@ module.exports = {
      module: {
       rules: [
         {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          use:["file-loader"]
+        },
+        {
+          test: /\.styl$/,
+          loaders: [
+            'style-loader',
+            'css-loader',
+            'stylus-loader',
+          ],
+    
+        },
+        {
           test: /\.less$/i,
           loaders: [
             'style-loader',
@@ -22,19 +35,19 @@ module.exports = {
             'less-loader',
           ],
         },
-        // {
-        //   test: /\.scss$/i,
-        //   use: [
-        //     "style-loader",
-        //     "css-loader",
-        //     {
-        //       loader: "sass-loader",
-        //       options: {
-        //         implementation: require('dart-sass')
-        //       }
-        //     },
-        //   ],
-        // },
+        {
+          test: /\.scss$/i,
+          use: [
+            "style-loader",
+            "css-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                implementation: require('dart-sass')
+              }
+            },
+          ],
+        },
       ],
     },
   
